@@ -11,6 +11,8 @@ class Color {
 public:
     double red, green, blue;
 
+    Color() : red(0), green(0), blue(0) {};
+
     Color(double red, double green, double blue) : red(red), green(green), blue(blue) {}
 
     bool operator==(const Color &rhs) const {
@@ -40,7 +42,7 @@ public:
     }
 };
 
-Color operator*(double scalar, Color c) {
+static Color operator*(double scalar, Color c) {
     return c * scalar;
 }
 
