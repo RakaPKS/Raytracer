@@ -10,9 +10,11 @@
 class RTuple {
 public:
     double x, y, z;
-    double w;
+    double w = 0;
 
-    RTuple(double x, double y, double z, double w) : x(x), y(y), z(z), w(w) {}
+    RTuple(double x, double y, double z) : x(x), y(y), z(z) {};
+    RTuple(double x, double y, double z, double w) : x(x), y(y), z(z), w(w) {};
+
 
     [[nodiscard]] bool isVector() const {
         return !w;
@@ -84,23 +86,23 @@ public:
     }
 };
 
-RTuple operator*(double scalar, const RTuple &rhs){
+static RTuple operator*(double scalar, const RTuple &rhs){
     return {rhs.x * scalar, rhs.y * scalar, rhs.z * scalar, rhs.w * scalar};
 };
 
-RPoint operator+(const RPoint &a, const RVector &b){
+static RPoint operator+(const RPoint &a, const RVector &b){
     return {a.x+b.x, a.y+b.y, a.z+b.z};
 }
 
-RPoint operator+(const RVector &a, const RPoint &b){
+static RPoint operator+(const RVector &a, const RPoint &b){
     return {a.x+b.x, a.y+b.y, a.z+b.z};
 }
 
-RPoint operator+(const RPoint &a, const RPoint &b){
+static RPoint operator+(const RPoint &a, const RPoint &b){
     return {a.x+b.x, a.y+b.y, a.z+b.z};
 }
 
-RVector operator+(const RVector &a, const RVector &b){
+static RVector operator+(const RVector &a, const RVector &b){
     return {a.x+b.x, a.y+b.y, a.z+b.z};
 }
 
