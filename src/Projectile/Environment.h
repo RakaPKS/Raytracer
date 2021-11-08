@@ -5,12 +5,13 @@
 #ifndef RAYTRACER_ENVIRONMENT_H
 #define RAYTRACER_ENVIRONMENT_H
 
-#include "RTuple.h"
+#include "../Primaries/RTuple.h"
 
-class Environment{
-    public:
+class Environment {
+public:
     RVector gravity;
     RVector wind;
+
     Environment(const RVector &gravity, const RVector &wind) : gravity(gravity), wind(wind) {};
 };
 

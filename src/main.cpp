@@ -3,9 +3,9 @@
 //
 
 #include <iostream>
-#include "RTuple.h"
-#include "Projectile.h"
-#include "Environment.h"
+#include "Primaries/RTuple.h"
+#include "Projectile/Projectile.h"
+#include "Projectile/Environment.h"
 
 void shootCannon(){
     Projectile p = {RPoint(0, 1, 0), RVector(1, 1, 0).normalize()};
