@@ -1,9 +1,5 @@
-//
-// Created by Raka Schipperheijn on 08/11/2021.
-//
-
 #include "gtest/gtest.h"
-#include "../src/Graphics/Canvas.h"
+#include "../../src/Graphics/Canvas.h"
 
 TEST(CanvasTestSuite, verifyClass) {
     Canvas c = Canvas(10, 20);

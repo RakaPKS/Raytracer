@@ -1,6 +1,3 @@
-//
-// Created by Raka Schipperheijn on 07/11/2021.
-//
 
 #ifndef RAYTRACER_PROJECTILE_H
 #define RAYTRACER_PROJECTILE_H

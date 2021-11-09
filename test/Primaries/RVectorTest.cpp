@@ -1,9 +1,5 @@
-//
-// Created by Raka Schipperheijn on 07/11/2021.
-//
-
 #include "gtest/gtest.h"
-#include "../src/Primaries/RTuple.h"
+#include "../../src/Primaries/RTuple.h"
 
 TEST(RVectorTestsSuite, verifySubClass) {
     RVector v = {12.0, 13.0, 14.0};

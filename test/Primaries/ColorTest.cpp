@@ -1,9 +1,5 @@
-//
-// Created by Raka Schipperheijn on 07/11/2021.
-//
-
 #include "gtest/gtest.h"
-#include "../src/Primaries/Color.h"
+#include "../../src/Primaries/Color.h"
 
 TEST(ColorTestSuite, verifyColorClass) {
     Color c = {-0.5, 0.4, 1.7};

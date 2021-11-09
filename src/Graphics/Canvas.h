@@ -1,7 +1,3 @@
-//
-// Created by Raka Schipperheijn on 08/11/2021.
-//
-
 #ifndef RAYTRACER_CANVAS_H
 #define RAYTRACER_CANVAS_H
 
@@ -21,6 +17,8 @@ public:
     }
 
     [[nodiscard]] Color pixelAt(int x, int y) const{
+        if (x > width || y > height)
+            return {0, 0, 0};
         return canvasPixels[findPixelIndex(x, y)];
     }
 
@@ -33,10 +31,13 @@ public:
 
 
 static void writePixel(Canvas& canvas, int x, int y, Color color){
-    canvas.canvasPixels[canvas.findPixelIndex(x, y)] = color;
+    if (x <= canvas.width && y <= canvas.height)
+        canvas.canvasPixels[canvas.findPixelIndex(x, y)] = color;
 }
 
 static Color pixelAt(Canvas canvas, int x, int y){
+    if (x > canvas.width || y > canvas.height)
+        return {0, 0, 0};
     return canvas.canvasPixels[canvas.findPixelIndex(x, y)];
 }
 

@@ -1,11 +1,11 @@
-//
-// Created by Raka Schipperheijn on 07/11/2021.
-//
-
 #ifndef RAYTRACER_COLOR_H
 #define RAYTRACER_COLOR_H
 
+#include <ostream>
 #include "RTuple.h"
+#include <string>
+#include <algorithm>
+#include <cmath>
 
 class Color {
 public:
@@ -40,6 +40,14 @@ public:
     Color operator*(double scalar) const {
         return {red * scalar, green * scalar, blue * scalar};
     }
+
+    std::string getPPM(){
+        std::string x = std::to_string(std::max(std::min((int)round(red * 255), 255),0));
+        x += " " +  std::to_string(std::max(std::min((int) round(green * 255), 255),0));
+        x += " " +  std::to_string(std::max(std::min((int) round(blue * 255), 255),0));
+        return x;
+    }
+
 };
 
 static Color operator*(double scalar, Color c) {

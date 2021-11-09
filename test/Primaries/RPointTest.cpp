@@ -1,9 +1,5 @@
-//
-// Created by Raka Schipperheijn on 08/11/2021.
-//
-
 #include "gtest/gtest.h"
-#include "../src/Primaries/RTuple.h"
+#include "../../src/Primaries/RTuple.h"
 
 TEST(RPointTestsSuite, verifySubClass) {
     RPoint p = {12.0, 13.0, 14.0};
