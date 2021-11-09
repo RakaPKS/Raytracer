@@ -7,7 +7,7 @@
 Color::Color(double red, double green, double blue) : red(red), green(green), blue(blue) {}
 
 
-    std::string Color::getPPM(){
+    std::string Color::getPPM() const{
         std::string x = std::to_string(std::max(std::min((int)round(red * 255), 255),0));
         x += " " +  std::to_string(std::max(std::min((int) round(green * 255), 255),0));
         x += " " +  std::to_string(std::max(std::min((int) round(blue * 255), 255),0));

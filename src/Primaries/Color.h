@@ -41,7 +41,7 @@ public:
         return {red * scalar, green * scalar, blue * scalar};
     }
 
-    std::string getPPM();
+    std::string getPPM() const;
 
 };
 

@@ -2,29 +2,29 @@
 
     RTuple::RTuple(double x, double y, double z, double w) : x(x), y(y), z(z), w(w) {}
 
-    [[nodiscard]] bool RTuple::isVector(){
+    [[nodiscard]] bool RTuple::isVector() const{
         return w == 0;
     }
 
-    [[nodiscard]] bool RTuple::isPoint(){
+    [[nodiscard]] bool RTuple::isPoint() const{
         return w == 1;
     }
 
     RVector::RVector(double x, double y, double z) : RTuple(x, y, z, 0), x(x), y(y), z(z), w(0) {}
 
-    [[nodiscard]] double RVector::magnitude(){
+    [[nodiscard]] double RVector::magnitude() const{
         return sqrt(x * x + y * y + z * z);
     }
 
-    [[nodiscard]] RVector RVector::normalize(){
+    [[nodiscard]] RVector RVector::normalize() const{
         return {x / magnitude(), y / magnitude(), z / magnitude()};
     }
 
-    [[nodiscard]] double RVector::dot(const RVector &rhs){
+    [[nodiscard]] double RVector::dot(const RVector &rhs) const{
         return x * rhs.x + y * rhs.y + z * rhs.z;
     }
 
-    [[nodiscard]] RVector RVector::cross(const RVector &rhs){
+    [[nodiscard]] RVector RVector::cross(const RVector &rhs) const{
         return {y * rhs.z - z * rhs.y, z * rhs.x - x * rhs.z, x * rhs.y - y * rhs.x};
     }
 

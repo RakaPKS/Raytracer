@@ -13,10 +13,10 @@ public:
     RTuple(double x, double y, double z, double w);
 
     //Checks if the RTuple is a vector
-    [[nodiscard]] bool isVector();
+    [[nodiscard]] bool isVector() const;
 
     //Checks if the RTuple is a point
-    [[nodiscard]] bool isPoint();
+    [[nodiscard]] bool isPoint() const;
 
     bool operator==(const RTuple &rhs) const {
         return x == rhs.x &&
@@ -39,13 +39,13 @@ public:
     RVector(double x, double y, double z);
 
 
-    [[nodiscard]] double magnitude();
+    [[nodiscard]] double magnitude() const;
 
-    [[nodiscard]] RVector normalize();
+    [[nodiscard]] RVector normalize() const;
 
-    [[nodiscard]] double dot(const RVector &rhs);
+    [[nodiscard]] double dot(const RVector &rhs) const;
 
-    [[nodiscard]] RVector cross(const RVector &rhs);
+    [[nodiscard]] RVector cross(const RVector &rhs) const;
 
     RVector operator-() const {
         return {-x, -y, -z};
