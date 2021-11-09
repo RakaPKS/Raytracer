@@ -11,9 +11,9 @@
 #include "Graphics/PPM.h"
 
 void shootCannon(){
-    Projectile p = {RPoint(200, 100, 0), RVector(100, 100, 0).normalize()};
-    Environment env = {RVector(0, -1, 0), RVector(-1, 0, 0)};
-    Canvas c = Canvas(210, 110);
+    Projectile p = {RPoint(0, 1, 0), RVector(1, 1.8, 0).normalize()*11.25};
+    Environment env = {RVector(0, -0.1, 0), RVector(-0.01, 0, 0)};
+    Canvas c = Canvas(900, 500);
     Color red = {1, 0 ,0};
     while(p.position.y > 0) {
         std::cout << "Position: x:" << p.position.x << " y: " << p.position.y << " z: " << p.position.z << std::endl;
@@ -25,7 +25,6 @@ void shootCannon(){
     std::ofstream out("../images/Projectile.ppm");
     out << s;
     out.close();
-    //::cout << "Position: x:" << p.position.x << " y: " << p.position.y << " z: " << p.position.z << std::endl;
 }
 
 void testCanvas(){
