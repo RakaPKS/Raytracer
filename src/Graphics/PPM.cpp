@@ -9,7 +9,7 @@
         for (int i = 0; i < c.length; i+=size){
             std::string line;
             for(int j = 0; j < size; j++){
-                if (line.size() + c.canvasPixels[i+j].getPPM().size() + 1 > 70){
+                if (line.size() + c.canvasPixels[i+j].getPPM().size() + 1 > max_size){
                     lines.push_back(line);
                     line = "";
                 }
@@ -21,9 +21,9 @@
         }
     }
 
-    [[nodiscard]] std::string PPM::getPPM() const {
+    [[nodiscard]] std::string PPM::getPPM(){
         std::string ppmLines;
-        for (const std::string& entry : lines){
+        for (std::string& entry : lines){
             ppmLines += entry + "\n";
         }
         return ppmLines;

@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "../../src/Primaries/RTuple.h"
 
+
 TEST(RPointTestsSuite, verifySubClass) {
     RPoint p = {12.0, 13.0, 14.0};
     EXPECT_FLOAT_EQ(p.x, 12.0);

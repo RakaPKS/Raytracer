@@ -7,15 +7,11 @@ class RTuple {
 public:
     double x, y, z, w;
 
-    RTuple(double x, double y, double z, double w) : x(x), y(y), z(z), w(w) {}
+    RTuple(double x, double y, double z, double w);
 
-    [[nodiscard]] bool isVector() const {
-        return w == 0;
-    }
+    [[nodiscard]] bool isVector();
 
-    [[nodiscard]] bool isPoint() const {
-        return w == 1;
-    }
+    [[nodiscard]] bool isPoint();
 
     bool operator==(const RTuple &rhs) const {
         return x == rhs.x &&
@@ -35,26 +31,19 @@ public:
     double x, y, z;
     double w = 0;
 
-    RVector(double x, double y, double z) : RTuple(x, y, z, 0), x(x), y(y), z(z), w(0) {}
+    RVector(double x, double y, double z);
+
+
+    [[nodiscard]] double magnitude();
+
+    [[nodiscard]] RVector normalize();
+
+    [[nodiscard]] double dot(const RVector &rhs);
+
+    [[nodiscard]] RVector cross(const RVector &rhs);
 
     RVector operator-() const {
         return {-x, -y, -z};
-    }
-
-    [[nodiscard]] double magnitude() const {
-        return sqrt(x * x + y * y + z * z);
-    }
-
-    [[nodiscard]] RVector normalize() const {
-        return {x / magnitude(), y / magnitude(), z / magnitude()};
-    }
-
-    [[nodiscard]] double dot(const RVector &rhs) const {
-        return x * rhs.x + y * rhs.y + z * rhs.z;
-    }
-
-    [[nodiscard]] RVector cross(const RVector &rhs) const {
-        return {y * rhs.z - z * rhs.y, z * rhs.x - x * rhs.z, x * rhs.y - y * rhs.x};
     }
 
     RVector operator*(const double &scalar) const {
@@ -73,61 +62,40 @@ public:
     double x, y, z;
     double w = 1;
 
-    RPoint(double x, double y, double z) : RTuple(x, y, z, 1), x(x), y(y), z(z), w(1) {}
+    RPoint(double x, double y, double z);
 
-    RPoint operator-() const {
+    RPoint operator-(){
         return {-x, -y, -z};
     }
 
-    RPoint operator*(const double &scalar) const {
+    RPoint operator*(const double &scalar){
         return {x * scalar, y * scalar, z * scalar};
     }
 
-    RPoint operator/(const double &scalar) const {
+    RPoint operator/(const double &scalar) {
         return {x / scalar, y / scalar, z / scalar};
     }
 };
 
-static RPoint operator+(const RPoint &a, const RVector &b) {
-    return {a.x + b.x, a.y + b.y, a.z + b.z};
-}
+RPoint operator+(const RPoint &a, const RVector &b);
 
-static RPoint operator+(const RVector &a, const RPoint &b) {
-    return {a.x + b.x, a.y + b.y, a.z + b.z};
-}
+RPoint operator+(const RVector &a, const RPoint &b);
 
-static RPoint operator-(const RPoint &a, const RVector &b) {
-    return {a.x - b.x, a.y - b.y, a.z - b.z};
-}
+RPoint operator-(const RPoint &a, const RVector &b);
 
-static RPoint operator*(const double &scalar, const RPoint a) {
-    return a * scalar;
-}
+RPoint operator*(const double &scalar, RPoint a);
 
-static RVector operator+(const RVector &a, const RVector &b) {
-    return {a.x + b.x, a.y + b.y, a.z + b.z};
-}
+RVector operator+(const RVector &a, const RVector &b);
 
+RVector operator-(const RVector &a, const RVector &b);
 
-static RVector operator-(const RVector &a, const RVector &b) {
-    return {a.x - b.x, a.y - b.y, a.z - b.z};
-}
+RVector operator-(const RPoint &a, const RPoint &b);
 
-static RVector operator-(const RPoint &a, const RPoint &b) {
-    return {a.x - b.x, a.y - b.y, a.z - b.z};
-}
+RVector operator*(const double &scalar, RVector a);
 
-static RVector operator*(const double &scalar, const RVector a) {
-    return a * scalar;
-}
+double dot(RVector a, const RVector &rhs);
 
-static double dot(const RVector a, const RVector &rhs) {
-    return a.x * rhs.x + a.y * rhs.y + a.z * rhs.z;
-}
-
-static RVector cross(const RVector a, const RVector &rhs) {
-    return {a.y * rhs.z - a.z * rhs.y, a.z * rhs.x - a.x * rhs.z, a.x * rhs.y - a.y * rhs.x};
-}
+RVector cross(RVector a, const RVector &rhs);
 
 
 #endif //RAYTRACER_RTUPLE_H

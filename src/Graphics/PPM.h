@@ -14,7 +14,7 @@ public:
 
     PPM(Canvas c);
 
-    [[nodiscard]] std::string getPPM() const;
+    [[nodiscard]] std::string getPPM();
 
 };
 
