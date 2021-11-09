@@ -8,6 +8,6 @@ file(GLOB_RECURSE SOURCES
         src/*.cpp
         )
 
-add_executable(Raytracer ${SOURCES})
+add_executable(Raytracer ${SOURCES} main.cpp)
 
 add_subdirectory(test)

@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
-#include "Primaries/RTuple.h"
-#include "Projectile/Projectile.h"
-#include "Projectile/Environment.h"
-#include "Graphics/Canvas.h"
-#include "Graphics/PPM.h"
+#include "src/Primaries/RTuple.h"
+#include "src/Projectile/Projectile.h"
+#include "src/Projectile/Environment.h"
+#include "src/Graphics/Canvas.h"
+#include "src/Graphics/PPM.h"
 
 void shootCannon(){
     Projectile p = {RPoint(0, 1, 0), RVector(1, 1.8, 0).normalize()*11.25};

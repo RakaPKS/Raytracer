@@ -3,14 +3,19 @@
 
 #include <cmath>
 
+//RTuple is a superclass to create:
+// RVector to represent a 3D Vector -> direction
+// RPoint to represent a 3D Point -> position;
 class RTuple {
 public:
     double x, y, z, w;
 
     RTuple(double x, double y, double z, double w);
 
+    //Checks if the RTuple is a vector
     [[nodiscard]] bool isVector();
 
+    //Checks if the RTuple is a point
     [[nodiscard]] bool isPoint();
 
     bool operator==(const RTuple &rhs) const {
