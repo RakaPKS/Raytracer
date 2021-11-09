@@ -7,8 +7,7 @@ class Environment {
 public:
     RVector gravity;
     RVector wind;
-
-    Environment(const RVector &gravity, const RVector &wind) : gravity(gravity), wind(wind) {};
+    Environment(const RVector &gravity, const RVector &wind);
 };
 
 #endif //RAYTRACER_ENVIRONMENT_H

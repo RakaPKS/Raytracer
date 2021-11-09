@@ -1,7 +1,3 @@
-//
-// Created by Raka Schipperheijn on 07/11/2021.
-//
-
 #include <iostream>
 #include <fstream>
 #include "Primaries/RTuple.h"

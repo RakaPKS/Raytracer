@@ -10,12 +10,11 @@ public:
     RPoint position;
     RVector velocity;
 
-    Projectile(const RPoint &position, const RVector &velocity) : position(position), velocity(velocity) {};
+    Projectile(const RPoint &position, const RVector &velocity);
 
-    Projectile tick(const Environment &env) const {
-        return {position + velocity, velocity + env.gravity + env.wind};
-    }
+    [[nodiscard]] Projectile tick(const Environment &env) const;
 
 };
+
 
 #endif //RAYTRACER_PROJECTILE_H
